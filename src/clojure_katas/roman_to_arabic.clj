@@ -10,7 +10,6 @@
   (apply hash-map (mapcat reverse roman-to-arabic-map)))
 
 (core/defproblem roman->arabic
-  [roman]
   "pseudocode roman->arabic
     note: the algorithm is based on the data structure of the map
      we have 1) basic one char inside the map
@@ -41,10 +40,10 @@
       else
         result = result + (num of string(c1, c2))
         recur the outer controll loop
-    end")
+    end"
+  [roman])
 
 (core/defproblem arabic->roman
-  [arabic]
   "Pseudocode arabic to roman
     Input: an arabic number X, a map of arabic to roman maps, sorted from maximum to minimum
     Output: a sequence of roman chars
@@ -60,4 +59,5 @@
         X = X - arabic_val_of(ci)
         recur
       else
-        recur")
+        recur"
+  [arabic])

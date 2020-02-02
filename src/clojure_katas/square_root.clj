@@ -13,4 +13,11 @@
    goal: x: f(x) = 0
    x_{1} = x_{0} - f(x_{0}) / f'(x_{0})
    x_{n+1} = x_{n} - f(x_{n}) / f'(x_{n})"
-  [x init tol])
+  [x init tol]
+  (let [err (- x (* init init))
+        new-init (/ (+ (/ x init) 
+                       init)
+                    2)]
+    (if (<= err tol)
+      init 
+      (recur x new-init tol))))

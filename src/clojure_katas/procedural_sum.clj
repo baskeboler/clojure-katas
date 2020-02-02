@@ -7,7 +7,8 @@
    output: return sum of integer from x to y
 
    example: (sum-integers 1, 4) > 1 + 2 + 3 + 4 = 10"
-  [x y])
+  [x y]
+  (apply + (range x (inc y))))
 
 (core/defproblem sum-cubes
   "x: start integer
@@ -15,4 +16,5 @@
    output: return sum of the cube of each integer from x to y
 
    example: (sum-cubes 1, 4) > 1 + 8 + 27 + 64 = 100"
-  [x y])
+  [x y]
+  (apply + (map #(* % % %) (range x (inc y)))))

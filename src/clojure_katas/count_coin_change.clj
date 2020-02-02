@@ -13,4 +13,11 @@
   # of ways to change amount a using n kinds of coins =
     # of ways to change amount a using all but first kind of coin +
     # of ways to change amount a - d, where d is the denomination of the first kind of coin"
-  [amount, index-of-coin-change-array])
+  [amount, index-of-coin-change-array]
+  (cond 
+    (neg? amount) 0
+    (zero? amount ) 1
+    (neg? index-of-coin-change-array) 0
+    :else     (+ (count-coin-change-tree amount (dec index-of-coin-change-array))
+                 (count-coin-change-tree (- amount (nth coins index-of-coin-change-array)) 
+                                         index-of-coin-change-array))))

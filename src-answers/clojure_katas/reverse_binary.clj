@@ -8,7 +8,7 @@
   [x]
   (Integer/parseInt x 2))
 
-(defn reverse-binary
+(defn compute
   [x]
   (-> x
       (decimal->binary)
