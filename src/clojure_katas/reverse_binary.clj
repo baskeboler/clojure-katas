@@ -1,6 +1,19 @@
 (ns clojure-katas.reverse-binary
   (:require [clojure-katas.core :as core]))
 
+
+(defn ->bin [n]
+  (reverse 
+   (map #(rem % 2)
+        (take-while 
+         pos? 
+         (iterate #(int (/ % 2)) n)))))
+
+(defn bin->base10 [bitlist]
+  (reduce (fn [res n]
+            (+ (* res 2)
+               n))
+          bitlist))
 (core/defproblem compute
   "Credit: Spotify Puzzle: http://labs.spotify.com/puzzles/
    Your task will be to write a program for reversing numbers in binary. 
@@ -15,5 +28,7 @@
    Sample input 2: 47
    Sample output 2: 61
    "
-  [num])
+  [num]
+  (bin->base10
+   (reverse (->bin num))))
 
