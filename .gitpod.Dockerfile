@@ -1,4 +1,4 @@
-FROM clojure
+FROM clojure:lein
                     
 USER gitpod
 
